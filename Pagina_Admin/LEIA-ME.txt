@@ -1,0 +1,11 @@
+EMPRESTP — Painel de Administração (interface demonstrativa)
+
+FICHEIROS
+- index.html: estrutura da página
+- admin.css: estilo responsivo
+- admin.js: navegação e interações de demonstração
+
+COMO ABRIR
+1. Extraia a pasta emprestp_admin para o computador.
+2. Abra index.html no browser, ou abra a pasta no Visual Studio Code.
+3. Para editar no VS Code, altere os ficheiros acima.

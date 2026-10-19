@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin | EMPRESTP</title>
+  <link rel="stylesheet" href="admin.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="EMPRESTP">
+        <span class="brand-icon"><i data-lucide="briefcase-business"></i></span>
+        <span><strong>EMPRESTP</strong><small>O Caminho Para Seu Futuro</small></span>
+      </a>
+      <nav class="nav">
+        <a class="nav-link active" href="#dashboard" data-section="dashboard"><i data-lucide="layout-dashboard"></i>Dashboard</a>
+        <a class="nav-link" href="#vagas" data-section="vagas"><i data-lucide="briefcase"></i>Gerir vagas</a>
+        <a class="nav-link" href="#empresas" data-section="empresas"><i data-lucide="building-2"></i>Gerir empresas</a>
+        <a class="nav-link" href="#candidatos" data-section="candidatos"><i data-lucide="users"></i>Gerir candidatos</a>
+        <a class="nav-link" href="#candidaturas" data-section="candidaturas"><i data-lucide="file-check-2"></i>Gerir candidaturas</a>
+        <a class="nav-link" href="#contactos" data-section="contactos"><i data-lucide="mail"></i>Gerir contactos</a>
+        <a class="nav-link" href="#definicoes" data-section="definicoes"><i data-lucide="settings"></i>Definições</a>
+      </nav>
+      <a class="nav-link logout" href="#" id="logout"><i data-lucide="log-out"></i>Terminar sessão</a>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="icon-button menu-toggle" id="menuToggle" aria-label="Abrir menu"><i data-lucide="menu"></i></button>
+        <div class="topbar-right">
+          <button class="icon-button notification" aria-label="Notificações"><i data-lucide="bell"></i><span></span></button>
+          <div class="avatar">AD</div>
+          <div class="admin-label"><strong>Administrador</strong><small>Área de gestão</small></div>
+        </div>
+      </header>
+
+      <section class="page-section active-section" id="section-dashboard">
+        <div class="page-heading">
+          <div><p class="eyebrow">VISÃO GERAL</p><h1>Painel de Administração</h1><p class="muted">Bem-vindo, Administrador! Aqui pode gerir o conteúdo do EMPRESTP.</p></div>
+          <button class="primary-button" id="addVacancyTop"><i data-lucide="plus"></i> Publicar vaga</button>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat-card blue"><div class="stat-icon"><i data-lucide="briefcase-business"></i></div><div><p>Vagas publicadas</p><strong id="statVagas">24</strong><small class="positive">↗ +3 esta semana</small></div></article>
+          <article class="stat-card green"><div class="stat-icon"><i data-lucide="users"></i></div><div><p>Candidatos registados</p><strong id="statCandidatos">152</strong><small class="positive">↗ +12 esta semana</small></div></article>
+          <article class="stat-card purple"><div class="stat-icon"><i data-lucide="building-2"></i></div><div><p>Empresas registadas</p><strong id="statEmpresas">38</strong><small class="positive">↗ +5 esta semana</small></div></article>
+          <article class="stat-card orange"><div class="stat-icon"><i data-lucide="files"></i></div><div><p>Candidaturas recebidas</p><strong id="statCandidaturas">86</strong><small class="positive">↗ +18 esta semana</small></div></article>
+        </div>
+
+        <div class="content-grid">
+          <article class="panel chart-panel">
+            <div class="panel-heading"><div><h2>Evolução das candidaturas</h2><p class="muted">Candidaturas recebidas ao longo dos últimos meses</p></div><span class="period">Últimos 7 meses</span></div>
+            <div class="chart-wrap">
+              <div class="y-labels"><span>100</span><span>80</span><span>60</span><span>40</span><span>20</span><span>0</span></div>
+              <div class="chart" role="img" aria-label="Gráfico ilustrativo de candidaturas">
+                <div class="chart-grid"></div>
+                <svg viewBox="0 0 700 230" preserveAspectRatio="none" aria-hidden="true">
+                  <defs><linearGradient id="area" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#2878f0" stop-opacity=".23"/><stop offset="100%" stop-color="#2878f0" stop-opacity=".02"/></linearGradient></defs>
+                  <path d="M0,175 L116,140 L233,140 L350,105 L466,70 L583,88 L700,22 L700,210 L0,210 Z" fill="url(#area)"/>
+                  <polyline points="0,175 116,140 233,140 350,105 466,70 583,88 700,22" fill="none" stroke="#2878f0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                  <g fill="#2878f0" stroke="#fff" stroke-width="2"><circle cx="0" cy="175" r="5"/><circle cx="116" cy="140" r="5"/><circle cx="233" cy="140" r="5"/><circle cx="350" cy="105" r="5"/><circle cx="466" cy="70" r="5"/><circle cx="583" cy="88" r="5"/><circle cx="700" cy="22" r="5"/></g>
+                </svg>
+                <div class="x-labels"><span>Jan</span><span>Fev</span><span>Mar</span><span>Abr</span><span>Mai</span><span>Jun</span><span>Jul</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel vacancies-panel">
+            <div class="panel-heading"><div><h2>Vagas mais recentes</h2><p class="muted">Publicações de exemplo</p></div><button class="text-button" data-go="vagas">Ver todas <span>→</span></button></div>
+            <div class="recent-list" id="recentVacancies">
+              <div class="recent-item"><span class="mini-icon"><i data-lucide="code-2"></i></span><div class="recent-info"><strong>Programador Web Júnior</strong><small>TechSolutions · Évora</small></div><span class="status active">Ativa</span></div>
+              <div class="recent-item"><span class="mini-icon"><i data-lucide="palette"></i></span><div class="recent-info"><strong>Designer Gráfico</strong><small>Criativa Lda · Lisboa</small></div><span class="status active">Ativa</span></div>
+              <div class="recent-item"><span class="mini-icon"><i data-lucide="user-round"></i></span><div class="recent-info"><strong>Assistente Administrativo</strong><small>GlobalWorks · Beja</small></div><span class="status active">Ativa</span></div>
+              <div class="recent-item"><span class="mini-icon"><i data-lucide="laptop"></i></span><div class="recent-info"><strong>Técnico de Informática</strong><small>InfoTech · Porto</small></div><span class="status active">Ativa</span></div>
+            </div>
+          </article>
+
+          <article class="panel applications-panel">
+            <div class="panel-heading"><div><h2>Candidaturas recentes</h2><p class="muted">Acompanhe o estado das candidaturas</p></div><button class="text-button" data-go="candidaturas">Ver todas <span>→</span></button></div>
+            <div class="table-scroll"><table><thead><tr><th>Candidato</th><th>Vaga</th><th>Empresa</th><th>Data</th><th>Estado</th></tr></thead><tbody id="applicationsBody">
+              <tr><td><span class="person"><span class="person-avatar">AS</span>Ana Silva</span></td><td>Programador Web Júnior</td><td>TechSolutions</td><td>12/07/2026</td><td><span class="status review">Em análise</span></td></tr>
+              <tr><td><span class="person"><span class="person-avatar teal">JP</span>João Pereira</span></td><td>Designer Gráfico</td><td>Criativa Lda</td><td>11/07/2026</td><td><span class="status new">Nova</span></td></tr>
+              <tr><td><span class="person"><span class="person-avatar purple-bg">MC</span>Maria Costa</span></td><td>Assistente Administrativo</td><td>GlobalWorks</td><td>10/07/2026</td><td><span class="status review">Em análise</span></td></tr>
+              <tr><td><span class="person"><span class="person-avatar orange-bg">PM</span>Pedro Mendes</span></td><td>Técnico de Informática</td><td>InfoTech</td><td>09/07/2026</td><td><span class="status interview">Entrevista</span></td></tr>
+            </tbody></table></div>
+          </article>
+
+          <article class="panel quick-panel">
+            <div class="panel-heading"><div><h2>Ações rápidas</h2><p class="muted">Atalhos para tarefas frequentes</p></div></div>
+            <div class="quick-grid">
+              <button class="quick-action blue" id="quickVacancy"><i data-lucide="briefcase-business"></i><span>Publicar nova vaga</span></button>
+              <button class="quick-action green" id="quickCompany"><i data-lucide="users"></i><span>Adicionar empresa</span></button>
+              <button class="quick-action purple" id="quickCandidate"><i data-lucide="user-round-plus"></i><span>Adicionar candidato</span></button>
+              <button class="quick-action orange" data-go="contactos"><i data-lucide="mail"></i><span>Ver contactos</span></button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="page-section" id="section-vagas">
+        <div class="page-heading"><div><p class="eyebrow">GESTÃO</p><h1>Gerir vagas</h1><p class="muted">Consulte, publique ou remova vagas de emprego.</p></div><button class="primary-button" id="addVacancy"><i data-lucide="plus"></i> Nova vaga</button></div>
+        <article class="panel"><div class="toolbar"><input id="vacancySearch" type="search" placeholder="Pesquisar vaga ou empresa..." aria-label="Pesquisar vaga"><span class="muted" id="vacancyCount">4 vagas de demonstração</span></div>
+          <div class="table-scroll"><table><thead><tr><th>Vaga</th><th>Empresa</th><th>Localização</th><th>Estado</th><th>Ações</th></tr></thead><tbody id="vacanciesBody">
+            <tr data-search="programador web júnior techsolutions évora"><td>Programador Web Júnior</td><td>TechSolutions</td><td>Évora</td><td><span class="status active">Ativa</span></td><td><button class="small-button delete-vacancy">Eliminar</button></td></tr>
+            <tr data-search="designer gráfico criativa lisboa"><td>Designer Gráfico</td><td>Criativa Lda</td><td>Lisboa</td><td><span class="status active">Ativa</span></td><td><button class="small-button delete-vacancy">Eliminar</button></td></tr>
+            <tr data-search="assistente administrativo globalworks beja"><td>Assistente Administrativo</td><td>GlobalWorks</td><td>Beja</td><td><span class="status active">Ativa</span></td><td><button class="small-button delete-vacancy">Eliminar</button></td></tr>
+            <tr data-search="técnico informática infotech porto"><td>Técnico de Informática</td><td>InfoTech</td><td>Porto</td><td><span class="status paused">Pausada</span></td><td><button class="small-button delete-vacancy">Eliminar</button></td></tr>
+          </tbody></table></div>
+        </article>
+      </section>
+
+      <section class="page-section" id="section-empresas">
+        <div class="page-heading"><div><p class="eyebrow">GESTÃO</p><h1>Gerir empresas</h1><p class="muted">Lista de empresas de demonstração registadas na plataforma.</p></div><button class="primary-button" id="addCompany"><i data-lucide="plus"></i> Adicionar empresa</button></div>
+        <article class="panel"><div class="table-scroll"><table><thead><tr><th>Empresa</th><th>Email</th><th>Localização</th><th>Estado</th></tr></thead><tbody id="companiesBody"><tr><td>TechSolutions</td><td>geral@techsolutions.pt</td><td>Évora</td><td><span class="status active">Verificada</span></td></tr><tr><td>Criativa Lda</td><td>contacto@criativa.pt</td><td>Lisboa</td><td><span class="status new">Pendente</span></td></tr><tr><td>GlobalWorks</td><td>info@globalworks.pt</td><td>Beja</td><td><span class="status active">Verificada</span></td></tr></tbody></table></div></article>
+      </section>
+
+      <section class="page-section" id="section-candidatos">
+        <div class="page-heading"><div><p class="eyebrow">GESTÃO</p><h1>Gerir candidatos</h1><p class="muted">Consulte os candidatos de exemplo.</p></div><button class="primary-button" id="addCandidate"><i data-lucide="user-round-plus"></i> Adicionar candidato</button></div>
+        <article class="panel"><div class="table-scroll"><table><thead><tr><th>Nome</th><th>Email</th><th>Área profissional</th><th>Estado</th></tr></thead><tbody id="candidatesBody"><tr><td>Ana Silva</td><td>ana@email.pt</td><td>Programação</td><td><span class="status active">Ativo</span></td></tr><tr><td>João Pereira</td><td>joao@email.pt</td><td>Design</td><td><span class="status active">Ativo</span></td></tr><tr><td>Maria Costa</td><td>maria@email.pt</td><td>Administração</td><td><span class="status active">Ativo</span></td></tr></tbody></table></div></article>
+      </section>
+
+      <section class="page-section" id="section-candidaturas">
+        <div class="page-heading"><div><p class="eyebrow">GESTÃO</p><h1>Gerir candidaturas</h1><p class="muted">Acompanhe os processos de candidatura.</p></div></div>
+        <article class="panel"><div class="table-scroll"><table><thead><tr><th>Candidato</th><th>Vaga</th><th>Empresa</th><th>Data</th><th>Estado</th></tr></thead><tbody><tr><td>Ana Silva</td><td>Programador Web Júnior</td><td>TechSolutions</td><td>12/07/2026</td><td><select class="status-select"><option>Em análise</option><option>Entrevista</option><option>Aprovada</option><option>Recusada</option></select></td></tr><tr><td>João Pereira</td><td>Designer Gráfico</td><td>Criativa Lda</td><td>11/07/2026</td><td><select class="status-select"><option>Nova</option><option>Em análise</option><option>Entrevista</option><option>Aprovada</option><option>Recusada</option></select></td></tr><tr><td>Maria Costa</td><td>Assistente Administrativo</td><td>GlobalWorks</td><td>10/07/2026</td><td><select class="status-select"><option>Em análise</option><option>Entrevista</option><option>Aprovada</option><option>Recusada</option></select></td></tr></tbody></table></div><p class="note">Nota: nesta versão demonstrativa, as alterações de estado só ficam no ecrã e não são guardadas numa base de dados.</p></article>
+      </section>
+
+      <section class="page-section" id="section-contactos">
+        <div class="page-heading"><div><p class="eyebrow">MENSAGENS</p><h1>Gerir contactos</h1><p class="muted">Mensagens de exemplo enviadas através do website.</p></div></div>
+        <article class="panel"><div class="table-scroll"><table><thead><tr><th>Nome</th><th>Email</th><th>Assunto</th><th>Mensagem</th></tr></thead><tbody><tr><td>Rita Martins</td><td>rita@email.pt</td><td>Dúvida sobre candidatura</td><td>Como posso atualizar o meu currículo?</td></tr><tr><td>Paulo Reis</td><td>paulo@empresa.pt</td><td>Registo de empresa</td><td>Gostaria de publicar uma vaga na plataforma.</td></tr></tbody></table></div></article>
+      </section>
+
+      <section class="page-section" id="section-definicoes">
+        <div class="page-heading"><div><p class="eyebrow">CONFIGURAÇÃO</p><h1>Definições</h1><p class="muted">Informações básicas desta interface de demonstração.</p></div></div>
+        <article class="panel settings-panel"><h2>Perfil do administrador</h2><label>Nome apresentado<input type="text" value="Administrador" id="adminName"></label><label>Email de contacto<input type="email" value="admin@emprestp.pt" id="adminEmail"></label><button class="primary-button" id="saveSettings">Guardar alterações no ecrã</button><p class="note">Estas definições não são guardadas permanentemente. Para isso, é necessário ligar o painel ao backend e à base de dados.</p></article>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="itemDialog">
+    <form method="dialog" id="itemForm">
+      <div class="dialog-heading"><h2 id="dialogTitle">Adicionar registo</h2><button class="icon-button" value="cancel" aria-label="Fechar"><i data-lucide="x"></i></button></div>
+      <div id="dialogFields"></div>
+      <div class="dialog-actions"><button class="secondary-button" value="cancel">Cancelar</button><button class="primary-button" id="saveItem" value="default">Guardar</button></div>
+    </form>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="admin.js"></script>
+</body>
+</html>
